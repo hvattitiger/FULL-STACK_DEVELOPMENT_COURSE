@@ -1,0 +1,54 @@
+# ─── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# ─── Environment / Secrets ────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─── SQLite Database ──────────────────────────────────────────
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# ─── Frontend – Node ──────────────────────────────────────────
+frontend/node_modules/
+node_modules/
+package-lock.json
+
+# ─── Frontend – Build output ──────────────────────────────────
+frontend/dist/
+
+# ─── Vite / npm symlinks (created by npm link) ────────────────
+frontend/task-tracker-frontend@*
+frontend/vite
+
+# ─── VS Code ──────────────────────────────────────────────────
+.vscode/
+*.code-workspace
+
+# ─── OS files ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Docker volumes / mounts ─────────────────────────────────
+mnt/
+
+# ─── Logs ─────────────────────────────────────────────────────
+*.log
+logs/
