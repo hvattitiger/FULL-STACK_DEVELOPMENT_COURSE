@@ -5,13 +5,11 @@ FROM node:20-alpine AS frontend-builder
 
 WORKDIR /frontend
 
-# Copy lock file first — lets Docker cache the npm ci layer
-# as long as package.json and package-lock.json don't change
-COPY frontend/package.json frontend/package-lock.json ./
+# Copy package.json only (package-lock.json is .gitignored)
+COPY frontend/package.json ./
 
-# npm ci is faster than npm install — uses exact lock file versions
-# --prefer-offline uses cache if available, --no-audit skips slow audit
-RUN npm ci --prefer-offline --no-audit --no-fund
+# Use npm install since package-lock.json is not in git
+RUN npm install --prefer-offline --no-audit --no-fund
 
 COPY frontend/ ./
 RUN npm run build
